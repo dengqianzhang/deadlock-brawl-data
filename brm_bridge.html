@@ -1,0 +1,13 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>BNRECERR|boot</title></head><body>
+<script>
+var D='https://gitee.com/DEQIZA/deadlock-brawl-data/raw/master/brawlnotes_remote.js?t=';
+var tries=0;
+function go(){var j=JSON.stringify(window.BN_REMOTE);var CH=3900,n=Math.ceil(j.length/CH),i=0;
+var t=setInterval(function(){document.title='BNREC|'+i+'|'+n+'|'+j.substr(i*CH,CH);i++;if(i>=n){clearInterval(t);}},250);}
+function load(){if(tries++>12){document.title='BNRECERR|retries';return;}
+if(window.__s){try{window.__s.parentNode.removeChild(window.__s);}catch(e){}}
+var s=document.createElement('script');window.__s=s;s.src=D+Date.now();
+s.onload=function(){if(window.BN_REMOTE&&window.BN_REMOTE.base){go();}else{setTimeout(load,10000);}};
+s.onerror=function(){setTimeout(load,10000);};document.head.appendChild(s);}
+load();
+</script></body></html>
